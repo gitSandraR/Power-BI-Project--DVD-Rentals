@@ -79,7 +79,7 @@ Few points worth mentioning here:
 3.  *Film Text Analysis* is a table made starting from the *Film* table.
     **AI Text Analysis** in Power Query is invoked to extract key
     phrases from film descriptions. These key phrases can be later used
-    for further analysis. Here, a simple Word Cloud custom visual is
+    for further analysis. Here, a simple *Word Cloud* custom visual is
     made in a report page.
 
 4.  *Date* table has one active and two inactive relationships with
@@ -224,4 +224,49 @@ height="3.6729166666666666in"}
 ![A screenshot of a computer Description automatically
 generated](./image4.png){width="6.5in"
 height="3.652083333333333in"}
+
+*Films* and *Rentals* pages:
+
+-   Analysis over time here is done by rental and return dates. For
+    this, DAX measures used USERELATIONSHIP function to activate two
+    inactive relationships between *Date* and *Films,* and *Date* and
+    *Rentals* tables. Films were rented in 2005 and early 2006.
+
+![A screenshot of a computer Description automatically
+generated](./image1.png){width="6.5in"
+height="3.6534722222222222in"}
+
+![A screenshot of a computer Description automatically
+generated](./image2.png){width="6.5in"
+height="3.6659722222222224in"}
+
+Drill-through *Region* page:
+
+-   For the selected region (for example Europe) new details are shown
+    in a separate page. This declutters the *Sales* page and improves
+    performance. Here *Total Sales by Country* visual instantly shows
+    the worst performers and calls for an action to investigate and
+    remedy this.
+
+![A screenshot of a map Description automatically
+generated](./image3.png){width="6.5in"
+height="3.6590277777777778in"}
+
+Custom tooltip pages:
+
+-   Left: custom tooltip used on the *Customers* page. A custom *Simple
+    Image* visual is used to hold a picture of a flag, and a multi row
+    card to hold relevant details.
+
+-   Right: this tooltip was used for bar and line combo chart on the
+    *Rentals* page. This chart has two default tooltips that are shown
+    separately for bar and for line chart. To put everything together in
+    one combo tooltip I used a custom tooltip page
+
+![A black and white sign with a red blue and yellow flag Description
+automatically generated](./image4.png){width="3.084051837270341in"
+height="1.3789271653543307in"} ![A black and white sign with white text
+Description automatically
+generated](./image5.png){width="2.9204779090113737in"
+height="1.3544652230971128in"}
 
