@@ -1,7 +1,7 @@
 # Power BI Project: DVD Rentals
 
  
-## Environment Setup
+## Environment Setup:
 
 To run the project, copy the whole folder ***DVD Rental Project*** to
 your computer. This folder contains all the files necessary for the
@@ -17,11 +17,12 @@ choose *Transform Data*), and from there go to Home ribbon and choose
 *Manage Parameters \> Edit Parameters* to change the path of your
 project. Choose *Close and Apply*.
 
-*Note:* Since the semantic model from this project won't be reused for
+***Note:*** Since the semantic model from this project won't be reused for
 future reports, both the semantic model and the report are part of the
 same ***.pbix*** file.
+<br/> <br/>
 
-## Data Source Files
+## Data Source Files:
 
 All the data comes from PostgreSQL sample database (***dvdrental.tar***
 file included with the SQL queries run to extract the necessary data;
@@ -46,24 +47,29 @@ These image URLs were then matched with corresponding countries in the
 *Country Flags.csv* file (*Country Flag* column). Finally, the file was
 imported to Power BI and relationship was made with an appropriate table
 in the model.
+<br/> <br/>
 
 ***Query dependencies screenshot:***
 
 ![Source Files - Query Dependencies screenshot](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/9d311859-6b10-4a5b-9847-dfdaea3dc743)
+<br/> <br/> <br/>
 
-## Modeling and DAX
+## Modeling and DAX:
+<br/>
 
-![A screenshot of a computer Description automatically
-generated](./image2.png){width="6.5in" height="3.64375in"}
+![Data Model](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/659c13f9-650d-4d95-9073-e46ab2ff77cc)
 
+<br/>
 Few points worth mentioning here:
+<br/>
+<br/>
 
-1.  Bidirectional relationship was made between *Country Flags* and
+ 🔷 **1.**  Bidirectional relationship was made between *Country Flags* and
     *Customer*, so the *Customer* table can filter the Country Flags and
     get the picture of a flag for a given country. The sole purpose for
     *Country Flags* in this project is to support the tooltip visual.
 
-2.  *Rentals* and *Payments* table contains both rented DVDs that
+🔷 **2.**  *Rentals* and *Payments* table contains both rented DVDs that
     weren't paid and those with payments. All the revenue (that is all
     the payments) came in 2007. Rentals without payments are from prior
     dates. Although not reflecting a usual scenario in a real world,
@@ -71,37 +77,33 @@ Few points worth mentioning here:
     of rentals (i.e. rental durations, per category, overdue, by region,
     and especially over time).
 
-3.  *Film Text Analysis* is a table made starting from the *Film* table.
+🔷 **3.**  *Film Text Analysis* is a table made starting from the *Film* table.
     **AI Text Analysis** in Power Query is invoked to extract key
     phrases from film descriptions. These key phrases can be later used
     for further analysis. Here, a simple *Word Cloud* custom visual is
     made in a report page.
 
-4.  *Date* table has one active and two inactive relationships with
+🔷 **4.**  *Date* table has one active and two inactive relationships with
     *Rentals and Payments* table. Active relationship is related to
     *Payment Date* column (for the analysis of sales), while inactive
     relationships were related to *Rental Date* and *Return Date* (for
     the analysis of films and rentals). *Date* table is a calculated
     table made in DAX and marked as a date table:
+    
+   ```
 
-**Date** = ADDCOLUMNS(
+ Date = ADDCOLUMNS(
+    		CALENDARAUTO(),
+    		"Day", DAY([Date]),
+    		"Month", MONTH([Date]),
+   			"Year", YEAR([Date]),
+    		"Month/Year", EOMONTH([Date], 0),
+    		"Year/Quarter", YEAR([Date]) & " " & "Q" & QUARTER([Date])
+    )
+ 
+```
 
->     CALENDARAUTO(),
->
->     \"Day\", DAY(\[Date\]),
->
->     \"Month\", MONTH(\[Date\]),
->
->     \"Year\", YEAR(\[Date\]),
->
->     \"Month/Year\", EOMONTH(\[Date\], 0),
->
->     \"Year/Quarter\", YEAR(\[Date\]) & \" \" & \"Q\" &
-> QUARTER(\[Date\])
->
-> )
-
-5.  Other measures used in visuals:
+🔷 **5.**  Other measures used in visuals:
 
 > **Total Sales** = SUM(\'Rentals and Payments\'\[Amount\])
 
@@ -168,7 +170,7 @@ Payments\'\[Rental Date\])
 >
 > )
 
-Visuals Pages / Tooltips Screenshots:
+## Visuals Pages / Tooltips Screenshots:
 
 Report opens on a *Customers* page:
 
