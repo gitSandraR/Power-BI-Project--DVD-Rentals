@@ -1,6 +1,5 @@
 # Power BI Project: DVD Rentals
 
- ---
  
 ## Environment Setup
 
@@ -22,7 +21,7 @@ project. Choose *Close and Apply*.
 future reports, both the semantic model and the report are part of the
 same ***.pbix*** file.
 
-Data Source Files
+## Data Source Files
 
 All the data comes from PostgreSQL sample database (***dvdrental.tar***
 file included with the SQL queries run to extract the necessary data;
@@ -48,13 +47,11 @@ These image URLs were then matched with corresponding countries in the
 imported to Power BI and relationship was made with an appropriate table
 in the model.
 
-Query dependencies screenshot:
+***Query dependencies screenshot:***
 
-![A screenshot of a computer Description automatically
-generated](./image1.png){width="6.5in"
-height="4.845833333333333in"}
+![Source Files - Query Dependencies screenshot](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/9d311859-6b10-4a5b-9847-dfdaea3dc743)
 
-Modeling and DAX
+## Modeling and DAX
 
 ![A screenshot of a computer Description automatically
 generated](./image2.png){width="6.5in" height="3.64375in"}
