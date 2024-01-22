@@ -1,10 +1,8 @@
 # Power BI Project: DVD Rentals
 
  ---
-title: "Power BI Project: DVD Rental"
----
-
-Environment Setup
+ 
+## Environment Setup
 
 To run the project, copy the whole folder ***DVD Rental Project*** to
 your computer. This folder contains all the files necessary for the
