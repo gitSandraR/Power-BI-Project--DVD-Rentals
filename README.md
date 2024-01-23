@@ -60,8 +60,8 @@ in the model.
 ![Data Model](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/659c13f9-650d-4d95-9073-e46ab2ff77cc)
 
 <br/>
-Few points worth mentioning here:
-<br/>
+
+### Few points worth mentioning here:
 <br/>
 
  🔷 **1.**  Bidirectional relationship was made between *Country Flags* and
@@ -91,66 +91,67 @@ Few points worth mentioning here:
     table made in DAX and marked as a date table: <br/> <br/>
     
 
-**Date** = <br/>
-ADDCOLUMNS ( <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CALENDARAUTO (), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Day", DAY ([Date]), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Month", MONTH ([Date]), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Year", YEAR ([Date]), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Month/Year", EOMONTH ([Date], 0), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Year/Quarter", YEAR ([Date]) & " " & "Q" & QUARTER ([Date]) <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ) <br/> <br/>
+> **Date** = <br/>
+> ***ADDCOLUMNS*** ( <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***CALENDARAUTO ()***, <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Day", ***DAY*** ([Date]), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Month", ***MONTH*** ([Date]), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Year", ***YEAR*** ([Date]), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Month/Year", ***EOMONTH*** ([Date], 0), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "Year/Quarter", ***YEAR*** ([Date]) & " " & "Q" & ***QUARTER*** ([Date]) <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ) <br/> <br/>
  
 
 🔷 **5.**  Other measures used in visuals: <br/> <br/>
 
-**Total Sales** = SUM (\'Rentals and Payments\'\[Amount\])
+> **Total Sales** = ***SUM*** (\'Rentals and Payments\'\[Amount\])
 <br/> <br/>
 
-**YTD Sales** = CALCULATE (\[Total Sales\], DATESYTD (\'Date\'\[Date\]))
+> **YTD Sales** = ***CALCULATE*** (\[Total Sales\], ***DATESYTD*** (\'Date\'\[Date\]))
 <br/> <br/>
 
-**Previous Month Sale** = CALCULATE (\[Total Sales\], PREVIOUSMONTH (\'Date\'\[Date\]))
+> **Previous Month Sale** = ***CALCULATE*** (\[Total Sales\], ***PREVIOUSMONTH*** (\'Date\'\[Date\]))
 <br/> <br/>
 
-**Average Rental Duration (in days)** = <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SUM (\'Rentals and Payments\'\[Rental Duration in days\]) <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / COUNTROWS (\'Rentals and Payments\')
+> **Average Rental Duration (in days)** = <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***SUM*** (\'Rentals and Payments\'\[Rental Duration in days\]) <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; / ***COUNTROWS*** (\'Rentals and Payments\')
 <br/> <br/>
 
-**Average of Replacement Cost (by Return Date)** = <br/>
-CALCULATE ( <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AVERAGEX (Film, Film\[Replacement Cost\]), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CROSSFILTER (\'Rentals and Payments\'\[film_id\], \'Film\'\[film_id\], Both), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; USERELATIONSHIP (\'Date\'\[Date\], \'Rentals and Payments\'\[Return Date\]) <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  )
+> **Average of Replacement Cost (by Return Date)** = <br/>
+> ***CALCULATE*** ( <br/>
+>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***AVERAGEX*** (Film, Film\[Replacement Cost\]), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***CROSSFILTER*** (\'Rentals and Payments\'\[film_id\], \'Film\'\[film_id\], Both), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***USERELATIONSHIP*** (\'Date\'\[Date\], \'Rentals and Payments\'\[Return Date\]) <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  )
 <br/> <br/>
 
-**\# of Rentals (by Rental Date)** = <br/>
- CALCULATE ( <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; COUNTROWS (\'Rentals and Payments\'), <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ALL (\'Rentals and Payments\'\[Is Overdue\]), <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; USERELATIONSHIP (\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         )
+> **\# of Rentals (by Rental Date)** = <br/>
+ > ***CALCULATE*** ( <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***COUNTROWS*** (\'Rentals and Payments\'), <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***ALL*** (\'Rentals and Payments\'\[Is Overdue\]), <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***USERELATIONSHIP*** (\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         )
 <br/> <br/>
 
-**\# of Overdue Rentals (by Rental Date)** = <br/>
-CALCULATE ( <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; COUNTROWS (\'Rentals and Payments\'), <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[Is Overdue\] = \"Yes\", <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; USERELATIONSHIP (\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     )
+> **\# of Overdue Rentals (by Rental Date)** = <br/>
+> ***CALCULATE*** ( <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***COUNTROWS*** (\'Rentals and Payments\'), <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[Is Overdue\] = \"Yes\", <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***USERELATIONSHIP*** (\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
+> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     )
 <br/> <br/>
 
- **% of Overdue Rentals** = <br/>
- DIVIDE ( <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[# of Overdue Rentals (by Rental Date)\], <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[# of Rentals (by Rental Date)\], <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 <br/>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    )
+ > **% of Overdue Rentals** = <br/>
+ > ***DIVIDE*** ( <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[# of Overdue Rentals (by Rental Date)\], <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \'Rentals and Payments\'\[# of Rentals (by Rental Date)\], <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0 <br/>
+ > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    )
  <br/> <br/>
 
 ## Visuals Pages / Tooltips Screenshots:
+<br/>
 
 Report opens on a *Customers* page:
 
