@@ -90,7 +90,7 @@ Few points worth mentioning here:
     the analysis of films and rentals). *Date* table is a calculated
     table made in DAX and marked as a date table:
     
-   ```
+ ```
 
  Date = ADDCOLUMNS(
     		CALENDARAUTO(),
@@ -105,7 +105,7 @@ Few points worth mentioning here:
 
 🔷 **5.**  Other measures used in visuals:
 
-> **Total Sales** = SUM(\'Rentals and Payments\'\[Amount\])
+**Total Sales** = SUM(\'Rentals and Payments\'\[Amount\])
 
 **YTD Sales** = CALCULATE(\[Total Sales\], DATESYTD(\'Date\'\[Date\]))
 
@@ -113,49 +113,33 @@ Few points worth mentioning here:
 PREVIOUSMONTH(\'Date\'\[Date\]))
 
 **Average Rental Duration (in days)** =
-
-SUM(\'Rentals and Payments\'\[Rental Duration in days\])
-
-/ COUNTROWS(\'Rentals and Payments\')
+&nbsp; &nbsp; &nbsp; &nbsp; SUM(\'Rentals and Payments\'\[Rental Duration in days\]) <br/>
+&nbsp; &nbsp; &nbsp; &nbsp; / COUNTROWS(\'Rentals and Payments\')
 
 **Average of Replacement Cost (by Return Date)** =
 
     CALCULATE(
 
                 AVERAGEX(Film, Film\[Replacement Cost\]),
-
-                CROSSFILTER(\'Rentals and Payments\'\[film_id\],
-\'Film\'\[film_id\], Both),
-
-                USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and
-Payments\'\[Return Date\])
-
+                CROSSFILTER(\'Rentals and Payments\'\[film_id\], \'Film\'\[film_id\], Both),
+                USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and Payments\'\[Return Date\])
+                
              )
 
-> **\# of Rentals (by Rental Date)** =
->
-> CALCULATE(
->
-> COUNTROWS(\'Rentals and Payments\'),
->
-> ALL(\'Rentals and Payments\'\[Is Overdue\]),
->
->           USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and
-> Payments\'\[Rental Date\])
->
->          )
->
-> **\# of Overdue Rentals (by Rental Date)** =
+**\# of Rentals (by Rental Date)** =
 
-    CALCULATE(
+ CALCULATE( <br/>
+ &nbsp; &nbsp; &nbsp; &nbsp; COUNTROWS(\'Rentals and Payments\'), <br/>
+ &nbsp; &nbsp; &nbsp; &nbsp; ALL(\'Rentals and Payments\'\[Is Overdue\]), <br/>
+ &nbsp; &nbsp; &nbsp; &nbsp; USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
+&nbsp; &nbsp; &nbsp; &nbsp;          )
 
-               COUNTROWS(\'Rentals and Payments\'),
+**\# of Overdue Rentals (by Rental Date)** =
 
-> \'Rentals and Payments\'\[Is Overdue\] = \"Yes\",
-
-               USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and
-Payments\'\[Rental Date\])
-
+CALCULATE( <br/>
+COUNTROWS(\'Rentals and Payments\'), <br/>
+\'Rentals and Payments\'\[Is Overdue\] = \"Yes\", <br/>
+USERELATIONSHIP(\'Date\'\[Date\], \'Rentals and Payments\'\[Rental Date\]) <br/>
               )
 
 > **% of Overdue Rentals** =
