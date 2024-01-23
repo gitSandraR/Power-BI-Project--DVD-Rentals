@@ -153,7 +153,7 @@ in the model.
 ## Visuals Pages / Tooltips Screenshots:
 <br/>
 
-Report opens on a *Customers* page:
+Report opens on a ***Customers*** page:
 
 -   Navigation is done through page navigator in the top left corner
     (and includes only visible pages in the report).
@@ -172,11 +172,15 @@ Report opens on a *Customers* page:
     supplemented with a custom tooltip that pops-up with more details
     including a country flag.
 
-![A screenshot of a computer Description automatically
-generated](./image3.png){width="6.5in"
-height="3.6729166666666666in"}
+<br/>
 
-*Sales* page:
+![Customers Page](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/c50549a8-dc0a-42a8-ad13-1a2b9d5622ed)
+<br/> <br/>
+---
+
+<br/>
+
+***Sales*** page:
 
 -   Month/Year slicer in the top right was filtered to include only
     months in which there was a sale. Then that filter is hidden so the
@@ -199,38 +203,47 @@ height="3.6729166666666666in"}
     without sales. Line chart gives a false impression of continuous
     sales.
 
-![A screenshot of a computer Description automatically
-generated](./image4.png){width="6.5in"
-height="3.652083333333333in"}
+<br/>
 
-*Films* and *Rentals* pages:
+![Sales Page](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/8182ecbb-fcab-4de7-8072-e127fdde9562)
+<br/> <br/>
+---
+
+<br/>
+
+***Films*** and ***Rentals*** pages:
 
 -   Analysis over time here is done by rental and return dates. For
     this, DAX measures used USERELATIONSHIP function to activate two
     inactive relationships between *Date* and *Films,* and *Date* and
     *Rentals* tables. Films were rented in 2005 and early 2006.
+<br/> <br/>
 
-![A screenshot of a computer Description automatically
-generated](./image1.png){width="6.5in"
-height="3.6534722222222222in"}
+![Films Page](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/e346843c-e63f-4cf8-8cd5-24c1a74e68f4)
+<br/> <br/>
 
-![A screenshot of a computer Description automatically
-generated](./image2.png){width="6.5in"
-height="3.6659722222222224in"}
+![Rentals Page](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/f4df9f6e-7ac0-406d-aed3-43eb82b740e9)
+<br/> <br/>
+---
 
-Drill-through *Region* page:
+<br/>
+
+Drill-through ***Region*** page:
 
 -   For the selected region (for example Europe) new details are shown
     in a separate page. This declutters the *Sales* page and improves
     performance. Here *Total Sales by Country* visual instantly shows
     the worst performers and calls for an action to investigate and
     remedy this.
+<br/> <br/>
 
-![A screenshot of a map Description automatically
-generated](./image3.png){width="6.5in"
-height="3.6590277777777778in"}
+![DrillThroughRegion Page](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/ac0d3bc1-34d1-49d2-a056-1973cc3fc68d)
+<br/> <br/>
+---
 
-Custom tooltip pages:
+<br/>
+
+Custom ***tooltip*** pages:
 
 -   Left: custom tooltip used on the *Customers* page. A custom *Simple
     Image* visual is used to hold a picture of a flag, and a multi row
@@ -239,12 +252,11 @@ Custom tooltip pages:
 -   Right: this tooltip was used for bar and line combo chart on the
     *Rentals* page. This chart has two default tooltips that are shown
     separately for bar and for line chart. To put everything together in
-    one combo tooltip I used a custom tooltip page
+    one combo tooltip I used a custom tooltip page.
+<br/> <br/>
 
-![A black and white sign with a red blue and yellow flag Description
-automatically generated](./image4.png){width="3.084051837270341in"
-height="1.3789271653543307in"} ![A black and white sign with white text
-Description automatically
-generated](./image5.png){width="2.9204779090113737in"
-height="1.3544652230971128in"}
+![Customers Tooltip](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/f4e60ca7-713c-4573-ad78-d6e1bf8e7911)  &nbsp; &nbsp; ![Rentals Tooltip](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/cfbc36d3-c1f3-42bf-a1eb-35296ae9b59c)
+<br/> <br/>
+---
+
 
