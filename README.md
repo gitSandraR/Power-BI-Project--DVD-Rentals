@@ -168,7 +168,7 @@ Report opens on a ***Customers*** page:
     country.
 
 -   Although scatter plots are used to show the existence of correlation
-    between two measures, here it is used in a bit creative way to show
+    between two measures and many data points, here it is used in a bit creative way to show
     total sales and number of customers for each country. It is
     supplemented with a custom tooltip that pops-up with more details
     including a country flag.
