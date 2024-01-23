@@ -167,7 +167,7 @@ Report opens on a ***Customers*** page:
 -   Map visual can be drilled down to show sales by city for a given
     country.
 
--   Although scatter plots are used show the existence of correlation
+-   Although scatter plots are used to show the existence of correlation
     between two measures, here it is used in a bit creative way to show
     total sales and number of customers for each country. It is
     supplemented with a custom tooltip that pops-up with more details
