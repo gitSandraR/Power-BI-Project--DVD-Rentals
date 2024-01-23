@@ -43,7 +43,7 @@ creation of a tooltip page (***Country Flags.csv***). Starting with a
 *Customer.csv*, all the columns except *country_id* and *Country* were
 removed. Then, after downloading small pictures of country flags from
 <https://www.worldometers.info/geography/flags-of-the-world/> website,
-the image URLs were created using an online image to URL converter.
+the image URLs were created using an online *image to URL* converter.
 These image URLs were then matched with corresponding countries in the
 *Country Flags.csv* file (*Country Flag* column). Finally, the file was
 imported to Power BI and relationship was made with an appropriate table
