@@ -1,7 +1,8 @@
 # Power BI Project: DVD Rentals
+<br/>
 
  
-## Environment Setup:
+## :gear: Environment Setup:
 
 To run the project, copy the whole folder ***DVD Rental Project*** to
 your computer. This folder contains all the files necessary for the
@@ -22,7 +23,7 @@ future reports, both the semantic model and the report are part of the
 same ***.pbix*** file.
 <br/> <br/>
 
-## Data Source Files:
+## :open_file_folder: Data Source Files:
 
 All the data comes from PostgreSQL sample database (***dvdrental.tar***
 file included with the SQL queries run to extract the necessary data;
@@ -54,7 +55,7 @@ in the model.
 ![Source Files - Query Dependencies screenshot](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/9d311859-6b10-4a5b-9847-dfdaea3dc743)
 <br/> <br/> <br/>
 
-## Modeling and DAX:
+## :hammer_and_wrench: Modeling and DAX:
 <br/>
 
 ![Data Model](https://github.com/gitSandraR/Power-BI-Project--DVD-Rentals/assets/133241677/659c13f9-650d-4d95-9073-e46ab2ff77cc)
@@ -150,7 +151,7 @@ in the model.
  > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    )
  <br/> <br/>
 
-## Visuals Pages / Tooltips Screenshots:
+## :eye: Visuals Pages / Tooltips Screenshots:
 <br/>
 
 Report opens on a ***Customers*** page:
